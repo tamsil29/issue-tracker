@@ -35,7 +35,8 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
   const onSubmit = handleSubmit(async (data) => {
     try {
       setIsSubmiting(true);
-      await axios.post("/api/issues", data);
+      if (issue) await axios.patch("/api/issues/" + issue.id, data);
+      else await axios.post("/api/issues", data);
       router.push("/issues");
     } catch (error) {
       setIsSubmiting(false);
@@ -52,7 +53,11 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
       )}
       <form className="space-y-3" onSubmit={onSubmit}>
         <TextField.Root>
-          <TextField.Input defaultValue={issue?.title} placeholder="Title" {...register("title")} />
+          <TextField.Input
+            defaultValue={issue?.title}
+            placeholder="Title"
+            {...register("title")}
+          />
         </TextField.Root>
         <ErrorMessage children={errors.title?.message} />
 
@@ -67,7 +72,8 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
         <ErrorMessage children={errors.description?.message} />
 
         <Button disabled={isSubmiting}>
-          Submit New Issue {isSubmiting && <Spinner />}
+          {issue ? "Update Issue" : "Submit New Issue"}{" "}
+          {isSubmiting && <Spinner />}
         </Button>
       </form>
     </div>
