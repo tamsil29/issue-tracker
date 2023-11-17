@@ -59,7 +59,7 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
             {...register("title")}
           />
         </TextField.Root>
-        <ErrorMessage children={errors.title?.message} />
+        <ErrorMessage message={errors.title?.message || ""} />
 
         <Controller
           name="description"
@@ -69,7 +69,7 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
             <SimpleMDE placeholder="Description" {...field} />
           )}
         />
-        <ErrorMessage children={errors.description?.message} />
+        <ErrorMessage message={errors.description?.message || ""} />
 
         <Button disabled={isSubmiting}>
           {issue ? "Update Issue" : "Submit New Issue"}{" "}
