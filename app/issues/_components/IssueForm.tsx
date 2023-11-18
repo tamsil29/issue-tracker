@@ -10,7 +10,7 @@ import "easymde/dist/easymde.min.css";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import SimpleMDE from 'react-simplemde-editor';
+import SimpleMDE from "react-simplemde-editor";
 import { z } from "zod";
 
 type IssueFormData = z.infer<typeof issueSchema>;
@@ -33,8 +33,8 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
       setIsSubmiting(true);
       if (issue) await axios.patch("/api/issues/" + issue.id, data);
       else await axios.post("/api/issues", data);
-      router.push("/issues");
-      router.refresh()
+      router.push("/issues/list");
+      router.refresh();
     } catch (error) {
       setIsSubmiting(false);
       setError("An unexpected error occured");
