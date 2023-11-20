@@ -4,13 +4,13 @@ import { Link as RadixLink } from "@radix-ui/themes";
 
 interface Props {
   href: string;
-  text: string;
+  children: string;
 }
 
-const Link = ({ href, text }: Props) => {
+const Link = ({ href, children }: Props) => {
   return (
     <NextLink href={href} passHref legacyBehavior>
-      <RadixLink>{text}</RadixLink>
+      <RadixLink>{children}</RadixLink>
     </NextLink>
   );
 };
