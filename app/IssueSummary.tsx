@@ -1,5 +1,5 @@
 import { Status } from "@prisma/client";
-import { Card, Flex, Text } from "@radix-ui/themes";
+import { Card, Flex, Grid, Text } from "@radix-ui/themes";
 import Link from "next/link";
 import React from "react";
 
@@ -16,7 +16,7 @@ const IssueSummary = ({ open, inProgress, closed }: Props) => {
     { label: "Closed", value: closed, status: "CLOSED" },
   ];
   return (
-    <Flex gap={"4"}>
+    <Grid gap={"4"} columns={"3"}>
       {containers.map((container) => (
         <Card key={container.label}>
           <Flex direction={"column"} gap={"1"}>
@@ -32,7 +32,7 @@ const IssueSummary = ({ open, inProgress, closed }: Props) => {
           </Flex>
         </Card>
       ))}
-    </Flex>
+    </Grid>
   );
 };
 

@@ -1,9 +1,7 @@
 import { IssueStatusBadge } from "@/app/components";
 import { Issue } from "@prisma/client";
-import { Heading, Flex, Card, Text, Box } from "@radix-ui/themes";
-import React from "react";
+import { Box, Card, Flex, Heading, Text } from "@radix-ui/themes";
 import ReactMarkdown from "react-markdown";
-import StatusSelect from "./StatusSelect";
 
 const IssueDetails = ({ issue }: { issue: Issue }) => {
   return (
@@ -16,7 +14,6 @@ const IssueDetails = ({ issue }: { issue: Issue }) => {
             <Text>{issue.createdAt.toDateString()}</Text>
           </Flex>
         </Box>
-        <StatusSelect issue={issue} />
       </Flex>
       <Card className="prose max-w-full" mt={"4"}>
         <ReactMarkdown>{issue.description}</ReactMarkdown>
