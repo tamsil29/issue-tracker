@@ -15,6 +15,7 @@ import {
   Text,
 } from "@radix-ui/themes";
 import { Skeleton } from "@/app/components";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const NavBar = () => {
   return (
@@ -48,7 +49,7 @@ const NavLinks = () => {
           <Link
             className={cn({
               "nav-link": true,
-              "!text-zinc-900": currentPath === link.href,
+              "!text-zinc-900 dark:!text-zinc-50": currentPath === link.href,
             })}
             href={link.href}
           >
@@ -73,7 +74,8 @@ const AuthStatus = () => {
     );
 
   return (
-    <Box>
+    <Flex align={"center"} gap={"4"}>
+      <ThemeSwitcher />
       <DropdownMenu.Root>
         <DropdownMenu.Trigger>
           <Avatar
@@ -94,7 +96,7 @@ const AuthStatus = () => {
           </DropdownMenu.Item>
         </DropdownMenu.Content>
       </DropdownMenu.Root>
-    </Box>
+    </Flex>
   );
 };
 
