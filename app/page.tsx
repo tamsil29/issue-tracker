@@ -29,7 +29,7 @@ export default async function Home({
     <Grid columns={{ initial: "1", md: "2" }} gap={"5"}>
       <Flex direction={"column"} gap={"5"}>
         <IssueSummary {...props} />
-        <IssueChart {...props} />;
+        <IssueChart {...props} />
       </Flex>
       <LatestIssues />
     </Grid>
