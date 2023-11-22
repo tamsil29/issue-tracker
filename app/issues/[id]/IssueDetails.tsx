@@ -16,7 +16,9 @@ const IssueDetails = ({ issue }: { issue: Issue }) => {
         </Box>
       </Flex>
       <Card className="prose max-w-full" mt={"4"}>
-        <ReactMarkdown>{issue.description}</ReactMarkdown>
+        <ReactMarkdown className="text-[var(--gray-12)]">
+          {issue.description}
+        </ReactMarkdown>
       </Card>
     </>
   );

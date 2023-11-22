@@ -63,7 +63,11 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
           control={control}
           defaultValue={issue?.description}
           render={({ field }) => (
-            <SimpleMDE placeholder="Description" {...field} />
+            <SimpleMDE
+              placeholder="Description"
+              {...field}
+              className="[&>div>div]:bg-[var(--color-background)] [&>div>div]:text-[var(--gray-12)]"
+            />
           )}
         />
         <ErrorMessage message={errors.description?.message || ""} />
