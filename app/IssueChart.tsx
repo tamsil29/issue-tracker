@@ -12,7 +12,7 @@ interface Props {
 
 const IssueChart = ({ closed, inProgress, open }: Props) => {
   const data = [
-    { label: "Open Issues", value: open },
+    { label: "Open", value: open },
     { label: "In Progress", value: inProgress },
     { label: "Closed", value: closed },
   ];
