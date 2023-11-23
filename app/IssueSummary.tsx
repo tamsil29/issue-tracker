@@ -18,18 +18,18 @@ const IssueSummary = ({ open, inProgress, closed }: Props) => {
   return (
     <Grid gap={"4"} columns={"3"}>
       {containers.map((container) => (
-        <Card key={container.label}>
-          <Flex direction={"column"} gap={"1"}>
-            <Link
-              className="text-sm font-medium"
-              href={`/issues/list?status=${container.status}`}
-            >
+        <Card key={container.label} asChild>
+          <Link
+            className="text-sm font-medium"
+            href={`/issues/list?status=${container.status}`}
+          >
+            <Flex direction={"column"} gap={"1"}>
               {container.label}
-            </Link>
-            <Text size={"5"} className="font-bold">
-              {container.value}
-            </Text>
-          </Flex>
+              <Text size={"5"} className="font-bold">
+                {container.value}
+              </Text>
+            </Flex>
+          </Link>
         </Card>
       ))}
     </Grid>
