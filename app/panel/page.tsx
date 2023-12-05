@@ -1,13 +1,13 @@
 import React from "react";
 import PanelCard from "./PanelCard";
 import { Box, Button, Flex, Separator } from "@radix-ui/themes";
-// import CreateNewPanel from "./CreateNewPanel";
+import CreateNewPanel from "./CreateNewPanel";
 
 const PanelListingPage = () => {
   return (
     <>
       <Flex direction={"column"} gap={"6"} align={"start"}>
-        {/* <CreateNewPanel /> */}
+        <CreateNewPanel />
 
         <Flex direction={"column"} gap={"4"} width={"100%"}>
           <PanelCard />
