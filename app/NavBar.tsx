@@ -95,6 +95,9 @@ const AuthStatus = () => {
             <Text size={"2"}>{session!.user?.email}</Text>
           </DropdownMenu.Label>
           <DropdownMenu.Item>
+            <Link href={"/panel"}>Panels</Link>
+          </DropdownMenu.Item>
+          <DropdownMenu.Item color="red">
             <Link href={"/api/auth/signout"}>Sign Out</Link>
           </DropdownMenu.Item>
         </DropdownMenu.Content>
