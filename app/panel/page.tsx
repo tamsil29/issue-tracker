@@ -1,7 +1,9 @@
 import React from "react";
 import PanelCard from "./PanelCard";
 import { Box, Button, Flex, Separator } from "@radix-ui/themes";
-import CreateNewPanel from "./CreateNewPanel";
+import dynamic from "next/dynamic";
+
+const CreateNewPanel = dynamic(() => import("@/app/panel/CreateNewPanel"));
 
 const PanelListingPage = () => {
   return (
