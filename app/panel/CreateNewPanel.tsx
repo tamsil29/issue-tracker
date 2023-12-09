@@ -16,7 +16,7 @@ const CreateNewPanel = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <Button onClick={() => setOpen(true)}>New Issue</Button>
+      <Button onClick={() => setOpen(true)}>Create New Panel</Button>
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetContent>
           <SheetHeader>
