@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Sheet,
   SheetContent,
@@ -8,28 +10,27 @@ import {
 } from "@/app/components/Sheet";
 import { Button, Heading, Text } from "@radix-ui/themes";
 
-import React from "react";
+import React, { useState } from "react";
 
 const CreateNewPanel = () => {
+  const [open, setOpen] = useState(false);
   return (
-    <Sheet>
-      <SheetTrigger>
-        <Button>New Panel</Button>
-      </SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle>
-            <Heading>Are you sure absolutely sure?</Heading>
-          </SheetTitle>
-          <SheetDescription>
-            <Text>
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
-            </Text>
-          </SheetDescription>
-        </SheetHeader>
-      </SheetContent>
-    </Sheet>
+    <>
+      <Button onClick={() => setOpen(true)}>New Issue</Button>
+      <Sheet open={open} onOpenChange={setOpen}>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>Create New Panel</SheetTitle>
+            <SheetDescription>
+              <Text>
+                This action cannot be undone. This will permanently delete your
+                account and remove your data from our servers.
+              </Text>
+            </SheetDescription>
+          </SheetHeader>
+        </SheetContent>
+      </Sheet>
+    </>
   );
 };
 
