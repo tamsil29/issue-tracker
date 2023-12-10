@@ -11,6 +11,7 @@ import {
 import { Button, Heading, Text } from "@radix-ui/themes";
 
 import React, { useState } from "react";
+import PanelForm from "./PanelForm";
 
 const CreateNewPanel = () => {
   const [open, setOpen] = useState(false);
@@ -21,14 +22,14 @@ const CreateNewPanel = () => {
         <SheetContent>
           <SheetHeader>
             <SheetTitle>Create New Panel</SheetTitle>
-            <SheetDescription>
-              <Text>
-                This action cannot be undone. This will permanently delete your
-                account and remove your data from our servers.
-              </Text>
-            </SheetDescription>
           </SheetHeader>
+          <SheetDescription>
+            <div>
+              <PanelForm />
+            </div>
+          </SheetDescription>
         </SheetContent>
+        <PanelForm />
       </Sheet>
     </>
   );

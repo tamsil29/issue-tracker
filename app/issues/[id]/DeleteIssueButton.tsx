@@ -11,6 +11,7 @@ const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
   const router = useRouter();
   const [error, setError] = useState(false);
   const [deleting, setDeleting] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleDelete = async () => {
     try {
@@ -26,14 +27,12 @@ const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
 
   return (
     <>
-      <AlertDialog.Root>
-        <AlertDialog.Trigger>
-          <Button color="red" disabled={deleting}>
-            <TrashIcon />
-            Delete Issue
-            {deleting && <Spinner />}
-          </Button>
-        </AlertDialog.Trigger>
+      <AlertDialog.Root open={open} onOpenChange={setOpen}>
+        <Button color="red" disabled={deleting} onClick={() => setOpen(true)}>
+          <TrashIcon />
+          Delete Issue
+          {deleting && <Spinner />}
+        </Button>
         <AlertDialog.Content style={{ maxWidth: 450 }}>
           <AlertDialog.Title>Confirm Deletion</AlertDialog.Title>
           <AlertDialog.Description size="2">
@@ -47,11 +46,11 @@ const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
                 Cancel
               </Button>
             </AlertDialog.Cancel>
-            <AlertDialog.Action>
-              <Button variant="solid" color="red" onClick={handleDelete}>
-                Delete
-              </Button>
-            </AlertDialog.Action>
+            {/* <AlertDialog.Action> */}
+            <Button variant="solid" color="red" onClick={handleDelete}>
+              Delete
+            </Button>
+            {/* </AlertDialog.Action> */}
           </Flex>
         </AlertDialog.Content>
       </AlertDialog.Root>
