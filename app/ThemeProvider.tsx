@@ -6,9 +6,10 @@ import ManagedProvider from "./ManagedProvider";
 
 type Props = {
   children: React.ReactNode;
+  enableNav?: boolean;
 };
 
-const Provider = ({ children }: Props) => {
+const Provider = ({ children, enableNav }: Props) => {
   const [mounted, setMounted] = useState<boolean>(false);
 
   useEffect(() => {
@@ -21,7 +22,7 @@ const Provider = ({ children }: Props) => {
 
   return (
     <ThemeProvider enableSystem={true} attribute="class">
-      <ManagedProvider>{children}</ManagedProvider>
+      <ManagedProvider enableNav={enableNav}>{children}</ManagedProvider>
     </ThemeProvider>
   );
 };

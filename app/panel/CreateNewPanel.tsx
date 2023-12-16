@@ -27,10 +27,8 @@ const CreateNewPanel = () => {
           <SheetDescription>
             Creating a new panel will be created
           </SheetDescription>
-
           <PanelForm />
         </SheetContent>
-        <PanelForm />
       </Sheet>
     </>
   );
