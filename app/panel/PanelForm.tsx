@@ -5,7 +5,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { issueSchema } from "../validationSchemas";
 import { z } from "zod";
-import { Button, TextField } from "@radix-ui/themes";
+import { Button, Flex, TextField } from "@radix-ui/themes";
 
 type PanelFormData = z.infer<typeof issueSchema>;
 
@@ -25,10 +25,12 @@ const PanelForm = () => {
 
   return (
     <form className="space-y-3" onSubmit={onSubmit}>
-      <TextField.Root>
-        <TextField.Input placeholder="Title" {...register("title")} />
-      </TextField.Root>
-      <Button disabled={false}>Save</Button>
+      <Flex direction="column" gap="3">
+        <TextField.Root>
+          <TextField.Input placeholder="Title" {...register("title")} />
+        </TextField.Root>
+        <Button disabled={false}>Save</Button>
+      </Flex>
     </form>
   );
 };

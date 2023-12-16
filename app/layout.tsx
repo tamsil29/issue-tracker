@@ -30,9 +30,7 @@ export default function RootLayout({
       <body className={inter.variable}>
         <QueryClientProvider>
           <AuthProvider>
-            <Provider>
-              <ManagedProvider>{children}</ManagedProvider>
-            </Provider>
+            <Provider>{children}</Provider>
           </AuthProvider>
         </QueryClientProvider>
       </body>

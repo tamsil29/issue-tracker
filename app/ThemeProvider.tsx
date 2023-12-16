@@ -2,9 +2,10 @@
 
 import { ThemeProvider } from "next-themes";
 import { useState, useEffect } from "react";
+import ManagedProvider from "./ManagedProvider";
 
 type Props = {
-  children: string | React.JSX.Element | React.JSX.Element[];
+  children: React.ReactNode;
 };
 
 const Provider = ({ children }: Props) => {
@@ -20,7 +21,7 @@ const Provider = ({ children }: Props) => {
 
   return (
     <ThemeProvider enableSystem={true} attribute="class">
-      {children}
+      <ManagedProvider>{children}</ManagedProvider>
     </ThemeProvider>
   );
 };

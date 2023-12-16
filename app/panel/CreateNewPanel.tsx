@@ -8,26 +8,27 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/app/components/Sheet";
-import { Button, Heading, Text } from "@radix-ui/themes";
-
+import { Button, Heading, Text, Theme } from "@radix-ui/themes";
+import * as Dialog from "@radix-ui/react-dialog";
 import React, { useState } from "react";
 import PanelForm from "./PanelForm";
 
 const CreateNewPanel = () => {
-  const [open, setOpen] = useState(false);
   return (
     <>
-      <Button onClick={() => setOpen(true)}>Create New Panel</Button>
-      <Sheet open={open} onOpenChange={setOpen}>
+      <Sheet>
+        <SheetTrigger>
+          <Button>Create New Panel</Button>
+        </SheetTrigger>
         <SheetContent>
           <SheetHeader>
             <SheetTitle>Create New Panel</SheetTitle>
           </SheetHeader>
           <SheetDescription>
-            <div>
-              <PanelForm />
-            </div>
+            Creating a new panel will be created
           </SheetDescription>
+
+          <PanelForm />
         </SheetContent>
         <PanelForm />
       </Sheet>
