@@ -22,12 +22,12 @@ const CreateNewPanel = () => {
         </SheetTrigger>
         <SheetContent>
           <SheetHeader>
-            <SheetTitle>Create New Panel</SheetTitle>
+            <SheetTitle>Panel Info</SheetTitle>
           </SheetHeader>
-          <SheetDescription>
-            Creating a new panel will be created
-          </SheetDescription>
-          <PanelForm />
+          {/* <SheetDescription></SheetDescription> */}
+          <div className="mt-4">
+            <PanelForm />
+          </div>
         </SheetContent>
       </Sheet>
     </>
