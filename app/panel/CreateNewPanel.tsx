@@ -8,12 +8,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/app/components/Sheet";
-import { Button, Heading, Text, Theme } from "@radix-ui/themes";
+import { Button, Heading, Text, TextField, Theme } from "@radix-ui/themes";
 import * as Dialog from "@radix-ui/react-dialog";
 import React, { useState } from "react";
 import PanelForm from "./PanelForm";
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
 import cn from "clsx";
+import UserCard from "./UserCard";
 
 enum Views {
   USERS = "USERS",
@@ -63,8 +64,14 @@ const CreateNewPanel = () => {
                 <div className="sm:hidden block" />
               </div>
             </SheetHeader>
-            <div className="mt-4">
-              <PanelForm onUserClick={() => setCurrentView(Views.USERS)} />
+            <div className="mt-4 flex flex-col gap-2">
+              <TextField.Root>
+                <TextField.Input placeholder="Search..." />
+              </TextField.Root>
+              <UserCard />
+              <UserCard />
+              <UserCard />
+              <UserCard />
             </div>
           </div>
         </SheetContent>
