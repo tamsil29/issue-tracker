@@ -54,12 +54,13 @@ const CreateNewPanel = () => {
             )}
           >
             <SheetHeader>
-              <div className="flex flex-row gap-2 items-center">
+              <div className="flex flex-row gap-2 items-center sm:justify-start justify-between">
                 <ArrowLeftIcon
                   className="h-4 w-4 cursor-pointer"
                   onClick={() => setCurrentView(Views.FORM)}
                 />
                 <SheetTitle>Panel Users</SheetTitle>
+                <div className="sm:hidden block" />
               </div>
             </SheetHeader>
             <div className="mt-4">
