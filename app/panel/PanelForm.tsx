@@ -8,10 +8,15 @@ import { ErrorMessage } from "../components";
 import { SheetClose } from "../components/Sheet";
 import { issueSchema } from "../validationSchemas";
 import PanelUsersCard from "./PanelUsersCard";
+import { MouseEventHandler } from "react";
 
 type PanelFormData = z.infer<typeof issueSchema>;
 
-const PanelForm = () => {
+const PanelForm = ({
+  onUserClick,
+}: {
+  onUserClick: MouseEventHandler<HTMLDivElement>;
+}) => {
   const {
     register,
     control,
@@ -40,7 +45,7 @@ const PanelForm = () => {
         />
         <ErrorMessage message={errors.description?.message || ""} />
 
-        <PanelUsersCard />
+        <PanelUsersCard onClick={onUserClick} />
       </Flex>
       <Flex gap={"3"} justify={"end"}>
         <Button color="red">
