@@ -3,7 +3,7 @@ import React from "react";
 
 const UserCard = () => {
   return (
-    <Card>
+    <Card variant="surface">
       <Flex gap="3" align="center">
         <Avatar
           size="3"

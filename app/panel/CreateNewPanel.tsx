@@ -3,17 +3,15 @@
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/app/components/Sheet";
-import { Button, Heading, Text, TextField, Theme } from "@radix-ui/themes";
-import * as Dialog from "@radix-ui/react-dialog";
-import React, { useState } from "react";
-import PanelForm from "./PanelForm";
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
+import { Button, TextField } from "@radix-ui/themes";
 import cn from "clsx";
+import { useState } from "react";
+import PanelForm from "./PanelForm";
 import UserCard from "./UserCard";
 
 enum Views {
@@ -47,10 +45,10 @@ const CreateNewPanel = () => {
 
           <div
             className={cn(
-              "duration-300 transition-all p-5 absolute top-0 left-0 w-full",
+              "duration-300 transition-all p-5 absolute top-0 left-0 w-full overflow-y-auto",
               {
                 ["translate-x-[200%] invisible"]: currentView === Views.FORM,
-                ["visible"]: currentView === Views.USERS,
+                ["visible h-screen"]: currentView === Views.USERS,
               }
             )}
           >
@@ -64,14 +62,17 @@ const CreateNewPanel = () => {
                 <div className="sm:hidden block" />
               </div>
             </SheetHeader>
-            <div className="mt-4 flex flex-col gap-2">
+            <div className="mt-4 flex flex-col gap-4">
               <TextField.Root>
                 <TextField.Input placeholder="Search..." />
               </TextField.Root>
-              <UserCard />
-              <UserCard />
-              <UserCard />
-              <UserCard />
+              <div className="flex flex-col gap-2">
+                {Array(10)
+                  .fill(1)
+                  .map((item, index) => (
+                    <UserCard key={index} />
+                  ))}
+              </div>
             </div>
           </div>
         </SheetContent>
