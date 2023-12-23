@@ -13,13 +13,16 @@ import cn from "clsx";
 import { useState } from "react";
 import PanelForm from "./PanelForm";
 import UserCard from "./UserCard";
+import dynamic from "next/dynamic";
+
+const UserListing = dynamic(() => import("./UserListing"));
 
 enum Views {
   USERS = "USERS",
   FORM = "FORM",
 }
 
-const CreateNewPanel = () => {
+const EditPanel = () => {
   const [currentView, setCurrentView] = useState(Views.FORM);
 
   return (
@@ -62,21 +65,7 @@ const CreateNewPanel = () => {
                 <div className="sm:hidden block" />
               </div>
             </SheetHeader>
-            <div className="mt-4 flex flex-col gap-4">
-              <TextField.Root>
-                <TextField.Slot>
-                  <MagnifyingGlassIcon height="16" width="16" />
-                </TextField.Slot>
-                <TextField.Input placeholder="Search..." />
-              </TextField.Root>
-              <div className="flex flex-col gap-2">
-                {Array(10)
-                  .fill(1)
-                  .map((item, index) => (
-                    <UserCard key={index} />
-                  ))}
-              </div>
-            </div>
+            <UserListing />
           </div>
         </SheetContent>
       </Sheet>
@@ -84,4 +73,4 @@ const CreateNewPanel = () => {
   );
 };
 
-export default CreateNewPanel;
+export default EditPanel;

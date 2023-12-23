@@ -59,7 +59,7 @@ const PanelForm = ({
         <Box>
           <Flex justify={"between"} px={"2"}>
             <Flex align={"center"} gap={"2"}>
-              <Text>Private</Text>
+              <Text size={"3"}>Private</Text>
               <PanelAccessibilityDetails />
             </Flex>
             <Switch />

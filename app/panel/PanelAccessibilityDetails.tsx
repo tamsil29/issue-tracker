@@ -16,7 +16,7 @@ const PanelAccessibilityDetails = () => {
         <Text size={"1"}>
           <Strong>Public:</Strong> Users not in the panel will be able to see
           all the content. They can't make any changes or delete anything in the
-          panel They can only request to join
+          panel. They can request to join
         </Text>
       </HoverCard.Content>
     </HoverCard.Root>
