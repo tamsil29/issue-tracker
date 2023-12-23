@@ -4,7 +4,7 @@ import { Text } from "@radix-ui/themes";
 const ErrorMessage = ({ message }: { message: string }) => {
   if (!message) return null;
   return (
-    <Text color="red" as="p" size={"2"}>
+    <Text color="red" as="p" size={"2"} className="px-2">
       {message}
     </Text>
   );

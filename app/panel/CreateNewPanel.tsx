@@ -7,7 +7,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/app/components/Sheet";
-import { ArrowLeftIcon } from "@radix-ui/react-icons";
+import { ArrowLeftIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { Button, TextField } from "@radix-ui/themes";
 import cn from "clsx";
 import { useState } from "react";
@@ -64,6 +64,9 @@ const CreateNewPanel = () => {
             </SheetHeader>
             <div className="mt-4 flex flex-col gap-4">
               <TextField.Root>
+                <TextField.Slot>
+                  <MagnifyingGlassIcon height="16" width="16" />
+                </TextField.Slot>
                 <TextField.Input placeholder="Search..." />
               </TextField.Root>
               <div className="flex flex-col gap-2">

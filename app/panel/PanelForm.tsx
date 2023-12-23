@@ -1,14 +1,23 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button, Flex, TextArea, TextField } from "@radix-ui/themes";
+import {
+  Box,
+  Button,
+  Flex,
+  Switch,
+  Text,
+  TextArea,
+  TextField,
+} from "@radix-ui/themes";
+import { MouseEventHandler } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { ErrorMessage } from "../components";
 import { SheetClose } from "../components/Sheet";
 import { issueSchema } from "../validationSchemas";
+import PanelAccessibilityDetails from "./PanelAccessibilityDetails";
 import PanelUsersCard from "./PanelUsersCard";
-import { MouseEventHandler } from "react";
 
 type PanelFormData = z.infer<typeof issueSchema>;
 
@@ -46,6 +55,16 @@ const PanelForm = ({
         <ErrorMessage message={errors.description?.message || ""} />
 
         <PanelUsersCard onClick={onUserClick} />
+
+        <Box>
+          <Flex justify={"between"} px={"2"}>
+            <Flex align={"center"} gap={"2"}>
+              <Text>Private</Text>
+              <PanelAccessibilityDetails />
+            </Flex>
+            <Switch />
+          </Flex>
+        </Box>
       </Flex>
       <Flex gap={"3"} justify={"end"}>
         <Button color="red">
