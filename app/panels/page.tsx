@@ -3,7 +3,7 @@ import PanelCard from "./PanelCard";
 import { Box, Button, Flex, Separator } from "@radix-ui/themes";
 import dynamic from "next/dynamic";
 
-const EditPanel = dynamic(() => import("@/app/panel/EditPanel"));
+const EditPanel = dynamic(() => import("@/app/panels/EditPanel"));
 
 const PanelListingPage = () => {
   return (
