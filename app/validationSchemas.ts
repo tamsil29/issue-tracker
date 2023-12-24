@@ -18,3 +18,7 @@ export const patchIssueSchema = z.object({
     assignedToUserId: z.string().min(1, "Assigned to userId is required").max(255).optional().nullable(),
     status: z.enum(statusValues).optional()
 });
+
+export const panelSchema = issueSchema.extend({
+  isPublic: z.boolean().default(false),
+})

@@ -7,13 +7,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/app/components/Sheet";
-import { ArrowLeftIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
-import { Button, TextField } from "@radix-ui/themes";
+import { ArrowLeftIcon } from "@radix-ui/react-icons";
+import { Button } from "@radix-ui/themes";
 import cn from "clsx";
+import dynamic from "next/dynamic";
 import { useState } from "react";
 import PanelForm from "./PanelForm";
-import UserCard from "./UserCard";
-import dynamic from "next/dynamic";
+import PanelUsersCard from "./PanelUsersCard";
 
 const UserListing = dynamic(() => import("./UserListing"));
 
@@ -41,8 +41,9 @@ const EditPanel = () => {
             <SheetHeader>
               <SheetTitle>Panel Info</SheetTitle>
             </SheetHeader>
-            <div className="mt-4">
-              <PanelForm onUserClick={() => setCurrentView(Views.USERS)} />
+            <div className="mt-4 flex flex-col gap-4">
+              <PanelUsersCard onClick={() => setCurrentView(Views.USERS)} />
+              <PanelForm />
             </div>
           </div>
 

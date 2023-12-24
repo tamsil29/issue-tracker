@@ -15,27 +15,23 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { ErrorMessage } from "../components";
 import { SheetClose } from "../components/Sheet";
-import { issueSchema } from "../validationSchemas";
+import { panelSchema } from "../validationSchemas";
 import PanelAccessibilityDetails from "./PanelAccessibilityDetails";
-import PanelUsersCard from "./PanelUsersCard";
 
-type PanelFormData = z.infer<typeof issueSchema>;
+type PanelFormData = z.infer<typeof panelSchema>;
 
-const PanelForm = ({
-  onUserClick,
-}: {
-  onUserClick: MouseEventHandler<HTMLDivElement>;
-}) => {
+const PanelForm = () => {
   const {
     register,
     control,
     handleSubmit,
     formState: { errors },
   } = useForm<PanelFormData>({
-    resolver: zodResolver(issueSchema),
+    resolver: zodResolver(panelSchema),
   });
 
   const onSubmit = handleSubmit((data) => {
+    console.log("123");
     console.log(data);
   });
 
@@ -54,18 +50,17 @@ const PanelForm = ({
         />
         <ErrorMessage message={errors.description?.message || ""} />
 
-        <PanelUsersCard onClick={onUserClick} />
-
         <Box>
           <Flex justify={"between"} px={"2"}>
             <Flex align={"center"} gap={"2"}>
               <Text size={"3"}>Private</Text>
               <PanelAccessibilityDetails />
             </Flex>
-            <Switch />
+            <Switch {...register("isPublic")} />
           </Flex>
         </Box>
       </Flex>
+
       <Flex gap={"3"} justify={"end"}>
         <Button color="red">
           <SheetClose type="reset">Cancel</SheetClose>
