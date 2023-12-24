@@ -11,7 +11,7 @@ import {
   TextField,
 } from "@radix-ui/themes";
 import { MouseEventHandler } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 import { ErrorMessage } from "../components";
 import { SheetClose } from "../components/Sheet";
@@ -25,13 +25,13 @@ const PanelForm = () => {
     register,
     control,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<PanelFormData>({
     resolver: zodResolver(panelSchema),
   });
 
   const onSubmit = handleSubmit((data) => {
-    console.log("123");
     console.log(data);
   });
 
@@ -56,7 +56,16 @@ const PanelForm = () => {
               <Text size={"3"}>Private</Text>
               <PanelAccessibilityDetails />
             </Flex>
-            <Switch {...register("isPublic")} />
+            <Controller
+              name="isPrivate"
+              control={control}
+              render={({ field }) => (
+                <Switch
+                  onCheckedChange={(val) => setValue("isPrivate", val)}
+                  defaultValue={!!field.value as any}
+                />
+              )}
+            />
           </Flex>
         </Box>
       </Flex>
@@ -65,7 +74,7 @@ const PanelForm = () => {
         <Button color="red">
           <SheetClose type="reset">Cancel</SheetClose>
         </Button>
-        <Button disabled={false}>Save</Button>
+        <Button>Save</Button>
       </Flex>
     </form>
   );

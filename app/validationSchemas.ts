@@ -20,5 +20,5 @@ export const patchIssueSchema = z.object({
 });
 
 export const panelSchema = issueSchema.extend({
-  isPublic: z.boolean().default(false),
+  isPrivate: z.boolean().default(false),
 })
